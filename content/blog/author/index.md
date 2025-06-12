@@ -10,6 +10,7 @@
 
 - **Argentinian**
 - 19 y/o
+- **Electromechanical Technician**
 - Future **Electromechanical Engineer** and **Back End Developer**.
 
 > This was made 12/06/2025

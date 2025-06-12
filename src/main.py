@@ -1,7 +1,12 @@
 from textnode import TextNode, TextType
+from copy_files import copy, generate_pages_recursive
 
 def main():
-    node = TextNode("ejemplo de onda", TextType.LINK, "www.boot.dev")
-    print(node)
+
+    copy("./public")
+
+    generate_pages_recursive("content", "template.html", "public")
+
+
 
 main()

@@ -6,7 +6,8 @@ def markdown_to_blocks(markdown):
     parr = (markdown.split("\n\n"))
     blocks = []
     for line in parr:
-        blocks.append(line.strip())
+        if line.strip() != "":
+            blocks.append(line.strip())
     return blocks
 
 def text_to_children(text):
@@ -20,9 +21,12 @@ def markdown_to_html_node(markdown):
     for block in blocks:
         block_type = block_to_block_type(block)
 
-        if block_type == BlockType.PARAGRAPH:
-            final.append(ParentNode("p", text_to_children(block)))
+        if block == "":
+            continue
 
+        if block_type == BlockType.PARAGRAPH:
+            final.append(ParentNode("p", text_to_children(block.replace("\n", " "))))
+        
         if block_type == BlockType.HEADING:
             num = 0
             while num<len(block) and block[num] == "#":
@@ -32,7 +36,7 @@ def markdown_to_html_node(markdown):
         
         if block_type == BlockType.CODE:
             lines = block.split("\n")[1:-1]
-            final.append(ParentNode("pre", [LeafNode("code", "\n".join(lines))]))
+            final.append(ParentNode("pre", [LeafNode("code", "\n".join(lines) + "\n")]))
 
         if block_type == BlockType.QUOTE:
             res = []

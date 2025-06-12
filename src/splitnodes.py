@@ -87,5 +87,5 @@ def text_to_textnodes(text):
     node = split_nodes_link(node)
     node = split_nodes_delimiter(node, "**", TextType.BOLD)
     node = split_nodes_delimiter(node, "_", TextType.ITALIC)
-    node = split_nodes_delimiter(node, "`", TextType.CODE)
+    node = split_nodes_delimiter(node, '`', TextType.CODE)
     return node

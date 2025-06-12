@@ -30,6 +30,9 @@ def split_nodes_image(old_node):
             new_nodes.append(node)
             continue
         
+        if node.text == "":
+            continue
+
         restante = node.text
         image =  extract_markdown_images(restante)
 
@@ -39,7 +42,8 @@ def split_nodes_image(old_node):
         else:
             for pair in image:
                 text = restante.split(f"![{pair[0]}]({pair[1]})", 1)
-                new_nodes.append(TextNode(text[0],TextType.TEXT))
+                if text[0] != "":
+                    new_nodes.append(TextNode(text[0],TextType.TEXT))
                 new_nodes.append(TextNode(f"{pair[0]}",TextType.IMAGE,pair[1]))
                 restante = text[1]
 
@@ -55,6 +59,9 @@ def split_nodes_link(old_node):
             new_nodes.append(node)
             continue
 
+        if node.text == "":
+            continue
+
         restante = node.text
         link =  extract_markdown_links(restante)   
 
@@ -64,7 +71,8 @@ def split_nodes_link(old_node):
         else:
             for pair in link:
                 text = restante.split(f"[{pair[0]}]({pair[1]})", 1)
-                new_nodes.append(TextNode(text[0], TextType.TEXT))
+                if text[0] != "":
+                    new_nodes.append(TextNode(text[0], TextType.TEXT))
                 new_nodes.append(TextNode(f"{pair[0]}", TextType.LINK, pair[1]))
                 restante = text[1]
 

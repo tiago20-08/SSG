@@ -9,6 +9,9 @@ nodo = TextNode("Hola mundo quehay", TextType.BOLD)
 hoja = LeafNode("p", "Bienvenidos al purgatorio", {"cosa1" : "muchos.valores", "tercera_cosa" : "poquitos.valores"})
 
 class TestHTML(unittest.TestCase):
+    def test_leaf_to_html_p(self):
+        node = LeafNode("p", "Hello, world!")
+        self.assertEqual(node.to_html(), "<p>Hello, world!</p>")
 
     def test_to_html_with_children(self):
         child_node = LeafNode("span", "child")

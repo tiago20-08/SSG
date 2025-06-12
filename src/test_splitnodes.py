@@ -93,7 +93,6 @@ class TestSplit(unittest.TestCase):
         new_nodes = split_nodes_image([node])
         self.assertListEqual(
             [
-                TextNode("", TextType.TEXT),
                 TextNode("start", TextType.IMAGE, "url1"),
                 TextNode(" middle text ", TextType.TEXT),
                 TextNode("end", TextType.IMAGE, "url2"),
@@ -113,7 +112,7 @@ class TestSplit(unittest.TestCase):
         node = TextNode("", TextType.TEXT)
         new_nodes = split_nodes_image([node])
         self.assertListEqual(
-            [TextNode("", TextType.TEXT)],
+            [],
             new_nodes
         )
     def test_text_to_textnodes(self):

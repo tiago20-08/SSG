@@ -7,6 +7,7 @@
 - [Instagram](https://www.instagram.com/_tiago_casasolaa/)
 - [GitHub Profile](https://github.com/tiago20-08)
 - [BootDev Profile](https://www.boot.dev/u/ttiago4)
+- _tiagocasasola4@gmail.com_
 
 - **Argentinian**
 - 19 y/o
